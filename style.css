@@ -39,92 +39,14 @@ body {
     padding: 20px 30px;
 }
 
-/* TITLE + CURSOR */
-.fade-title {
-    animation: fadein 1.2s ease forwards;
+/* COUNTDOWN */
+.countdown {
+    font-size: 2.6rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     opacity: 0;
-    font-size: 2.2rem;
-}
-.cursor { animation: blink 1s steps(1) infinite; }
-
-/* FADE ITEM (intro, subtitle, links) */
-.fade-item {
-    transform: translateY(6px);
-    animation: rise 0.6s ease forwards;
-    animation-fill-mode: both;
-}
-
-/* ORDER DELAYS */
-.intro-text { animation-delay: 0.4s; font-size:1rem; margin:5px 0 15px 0; }
-.subtitle { animation-delay: 0.6s; margin-bottom:20px; color: rgba(255,255,255,0.7); }
-ul li.fade-item:nth-child(1) { animation-delay: 0.8s; font-size:1.3rem; margin:10px 0; }
-ul li.fade-item:nth-child(2) { animation-delay: 1s; font-size:1.3rem; margin:10px 0; }
-ul li.fade-item:nth-child(3) { animation-delay: 1.2s; font-size:1.3rem; margin:10px 0; }
-
-/* LINKS & LIST */
-ul {
-    list-style: none;      /* remove bullets */
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column; /* vertical list */
-    align-items: center;    /* center links */
-}
-
-li {
-    list-style: none;
-    margin: 10px 0;
-}
-
-a {
-    color:white;
-    text-decoration:none;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    transition: color 0.2s, transform 0.2s;
-    position: relative;
-}
-
-/* ICON */
-.icon { width:20px; height:20px; transition:0.2s; }
-
-/* SOCIAL LINK HOVER COLORS & ICON SCALE */
-.social-link.github:hover { color: #BFFFD1; transform: translateX(4px); }
-.social-link.lastfm:hover { color: #D51007; transform: translateX(4px); }
-.social-link.twitter:hover { color: #1DA1F2; transform: translateX(4px); }
-.social-link:hover .icon { transform: scale(1.15); }
-
-/* FOOTER CENTERED STACK */
-footer {
-    position: fixed;
-    bottom: 12px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-}
-
-/* FOOTER GIF */
-.footer-gif {
-    height: auto;
-    width: auto;
-    max-height: 24px;
-    object-fit: contain;
-    pointer-events: none;
-}
-
-/* STATIC FOOTER TEXT */
-.footer-text {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.5);
+    animation: fadein 1.2s ease forwards;
 }
 
 /* ANIMATIONS */
-@keyframes fadein { to { opacity:1; } }
-@keyframes blink { 50% { opacity:0; } }
-@keyframes rise {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadein { to { opacity: 1; } }
