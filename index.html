@@ -4,44 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>kateh.net</title>
-    <link rel="stylesheet" href="./style.css?v=7">
+    <link rel="stylesheet" href="./style.css?v=8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1 class="fade-title">kateh.net<span class="cursor">_</span></h1>
-
-        <p class="fade-item intro-text">
-            hello bro
-        </p>
-
-        <p class="fade-item subtitle">she/her</p>
-
-        <ul>
-            <li class="fade-item">
-                <a href="https://github.com/katehpr" target="_blank" class="social-link github">
-                    <img src="./github.png" alt="GitHub logo" class="icon"> github
-                </a>
-            </li>
-            <li class="fade-item">
-                <a href="https://www.last.fm/user/katehpr" target="_blank" class="social-link lastfm">
-                    <img src="./lastfm.png" alt="Last.fm logo" class="icon"> last.fm
-                </a>
-            </li>
-            <li class="fade-item">
-                <a href="https://x.com/kkate8kk" target="_blank" class="social-link twitter">
-                    <img src="./twitter.png" alt="Twitter logo" class="icon"> twitter
-                </a>
-            </li>
-        </ul>
+        <div id="countdown" class="countdown">00:00:00:00</div>
     </div>
-
-    <footer>
-        <img src="./macmade.gif" alt="MacMade" class="footer-gif">
-        <span class="footer-text">2026 kate h</span>
-    </footer>
 
     <div id="spotlight"></div>
 
@@ -55,6 +26,31 @@
                     spot.style.background = `radial-gradient(circle 150px at ${e.clientX}px ${e.clientY}px, rgba(255,255,255,0.25), transparent 70%)`;
                 });
             }
+
+            const target = new Date("2026-05-22T00:00:00").getTime();
+            const el = document.getElementById("countdown");
+
+            function pad(n) { return String(n).padStart(2, "0"); }
+
+            function tick() {
+                const now = Date.now();
+                let diff = target - now;
+
+                if (diff <= 0) {
+                    el.textContent = "00:00:00:00";
+                    return;
+                }
+
+                const d = Math.floor(diff / 86400000); diff %= 86400000;
+                const h = Math.floor(diff / 3600000);  diff %= 3600000;
+                const m = Math.floor(diff / 60000);     diff %= 60000;
+                const s = Math.floor(diff / 1000);
+
+                el.textContent = `${pad(d)}:${pad(h)}:${pad(m)}:${pad(s)}`;
+                requestAnimationFrame(tick);
+            }
+
+            requestAnimationFrame(tick);
         });
     </script>
 </body>
