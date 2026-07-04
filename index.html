@@ -4,15 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>kateh.net</title>
-    <link rel="stylesheet" href="./style.css?v=8">
+    <link rel="icon" href="./icon.png" type="image/png">
+    <link rel="stylesheet" href="./style.css?v=10">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div id="countdown" class="countdown">00:00:00:00</div>
-    </div>
+    <main class="container">
+        <h1 class="title">kateh.net</h1>
+        <p class="subtitle">i do music production, mastering and tech bs hmu</p>
+
+        <nav class="socials" aria-label="Social links">
+            <a class="social-link" href="https://www.last.fm/user/katehpr" target="_blank" rel="noreferrer" aria-label="Last.fm">
+                <img src="./lastfm.png" alt="" />
+            </a>
+            <a class="social-link" href="https://x.com/2x6k8" target="_blank" rel="noreferrer" aria-label="Twitter">
+                <img src="./twitter.png" alt="" />
+            </a>
+            <a class="social-link" href="https://www.albumoftheyear.org/user/kateee/" target="_blank" rel="noreferrer" aria-label="Album of the Year">
+                <img src="./aoty.png" alt="" />
+            </a>
+            <a class="social-link" href="https://github.com/2x6k" target="_blank" rel="noreferrer" aria-label="GitHub">
+                <img src="./github.png" alt="" />
+            </a>
+        </nav>
+
+        <a class="contact-link" href="https://signal.me/#eu/NlYdLR7seJl2kudBZ0hhYm9udsNDmNL1Qr8gP22IWUdnJF1yV41Fv5BCQ5Me17X9" target="_blank" rel="noreferrer">contact</a>
+    </main>
+
+    <footer class="footer">
+        <img class="macmade" src="./macmade.gif" alt="Macmade" />
+    </footer>
 
     <div id="spotlight"></div>
 
@@ -26,31 +49,6 @@
                     spot.style.background = `radial-gradient(circle 150px at ${e.clientX}px ${e.clientY}px, rgba(255,255,255,0.25), transparent 70%)`;
                 });
             }
-
-            const target = new Date("2026-05-22T00:00:00").getTime();
-            const el = document.getElementById("countdown");
-
-            function pad(n) { return String(n).padStart(2, "0"); }
-
-            function tick() {
-                const now = Date.now();
-                let diff = target - now;
-
-                if (diff <= 0) {
-                    el.textContent = "00:00:00:00";
-                    return;
-                }
-
-                const d = Math.floor(diff / 86400000); diff %= 86400000;
-                const h = Math.floor(diff / 3600000);  diff %= 3600000;
-                const m = Math.floor(diff / 60000);     diff %= 60000;
-                const s = Math.floor(diff / 1000);
-
-                el.textContent = `${pad(d)}:${pad(h)}:${pad(m)}:${pad(s)}`;
-                requestAnimationFrame(tick);
-            }
-
-            requestAnimationFrame(tick);
         });
     </script>
 </body>
